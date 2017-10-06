@@ -6,7 +6,14 @@ public class Main {
                 "Теперь добавляем в каждый торрент новый адрес трекера, который формируется на " +
                 "основе уже существующего там адреса.";
 
-        String[] spamText = new String []{"E", "e"};
-        System.out.println(spamText[1]);
+        String[] spamText = new String []{"."};
+
+        SpamAnalyzer spamAnalyzer = new SpamAnalyzer(spamText);
+        spamAnalyzer.processText(string);
+    }
+
+    public Label checkLabels(TextAnalyzer[] analyzers, String text) {
+
+        return Label.OK;
     }
 }

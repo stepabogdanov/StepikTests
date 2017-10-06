@@ -1,9 +1,6 @@
 public class NagativeTextAnalyzer extends KeywordAnalyzer implements TextAnalyzer{
-    String [] keywords;
 
-    NagativeTextAnalyzer(String[] keywords){
-
-    }
+    private  String [] badSmiles = new String[] {":(", "=(", ":|"};
 
 
     @Override
