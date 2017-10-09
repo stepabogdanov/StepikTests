@@ -5,6 +5,8 @@ public class Main2 {
 
         System.out.println(getCallerClassAndMethodName());
         anotherMethod();
+        System.out.println(getCallerClassAndMethodName());
+        m1();
 
     }
 
@@ -16,13 +18,13 @@ public class Main2 {
             StackTraceElement[] traceElements = new StackTraceElement[ex.getStackTrace().length];
 
 //            str = ex.getStackTrace()[0].getMethodName();
-            if (traceElements.length <= 0){
+            if (traceElements.length <= 2){
                 str = null;
             }
 //
             else {
-               str = ex.getStackTrace()[traceElements.length-1].getClassName() + "#" +
-                       ex.getStackTrace()[traceElements.length-1].getMethodName();
+               str = ex.getStackTrace()[ex.getStackTrace().length-(ex.getStackTrace().length-1)].getClassName() + "#" +
+                       ex.getStackTrace()[ex.getStackTrace().length-(ex.getStackTrace().length -2)].getMethodName(); // + " number:" + traceElements.length;
 
             }
 //            //System.out.println(traceElements.length);
@@ -35,5 +37,18 @@ public class Main2 {
     private static void anotherMethod() {
         System.out.println(getCallerClassAndMethodName());
     }
+
+    static void m1() {
+        System.out.println(getCallerClassAndMethodName());
+        m2();    }
+
+    static void m2() {
+        System.out.println(getCallerClassAndMethodName());
+        m3();    }
+
+    static void m3() {
+        System.out.println(getCallerClassAndMethodName());    }
+
+
 
 }
