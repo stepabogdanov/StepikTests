@@ -13,15 +13,19 @@ public class Main2 {
             throw new Exception();
         } catch (Exception ex) {
             String str;
-            str = ex.getStackTrace()[1].getMethodName();
-            if (str.equals("main")){
+            StackTraceElement[] traceElements = new StackTraceElement[ex.getStackTrace().length];
+
+//            str = ex.getStackTrace()[0].getMethodName();
+            if (traceElements.length <= 0){
                 str = null;
             }
-
+//
             else {
+               str = ex.getStackTrace()[traceElements.length-1].getClassName() + "#" +
+                       ex.getStackTrace()[traceElements.length-1].getMethodName();
 
-               str = ex.getStackTrace()[0].getClassName() + "#" + ex.getStackTrace()[1].getMethodName();
             }
+//            //System.out.println(traceElements.length);
 
             return str;
         }
