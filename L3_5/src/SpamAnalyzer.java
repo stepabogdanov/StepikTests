@@ -7,6 +7,7 @@ public class SpamAnalyzer extends KeywordAnalyzer implements TextAnalyzer {
     }
     @Override
     protected String[] getKeywords() {
+
         return keywords;
     }
 
@@ -16,17 +17,16 @@ public class SpamAnalyzer extends KeywordAnalyzer implements TextAnalyzer {
     }
 
 
-
     @Override
     public Label processText(String text) {
-        for (int i = 0; i<keywords.length ; i++) {
-            if (text.contains(keywords[i])) {
-                System.out.println(keywords[i]);
-                label = Label.SPAM;
-                return Label.SPAM;
+        for (int i = 0; i<getKeywords().length ; i++) {
+            if (text.contains(getKeywords()[i])) {
+                //System.out.println(getKeywords()[i]);
+                return label;
             }
 
         }
-        return Label.OK;
+        label = Label.OK;
+        return label;
     }
 }
